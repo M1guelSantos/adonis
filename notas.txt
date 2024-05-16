@@ -1,0 +1,4 @@
+Sintaxe de relacionamento: Pertence a
+
+ @belongsTo(()=>Tipo)
+  declare tipo: BelongsTo<typeof Tipo>

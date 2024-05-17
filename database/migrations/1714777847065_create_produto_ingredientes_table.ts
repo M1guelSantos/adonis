@@ -11,6 +11,12 @@ export default class extends BaseSchema {
       table.foreign('produto_id')
       .references('id')
       .inTable('produtos')
+
+      table
+      .foreign('ingrediente_id')
+      .references('id')
+      .inTable('ingredientes')
+      
       table.timestamp('created_at')
       table.timestamp('updated_at')
     })

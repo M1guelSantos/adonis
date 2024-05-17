@@ -6,16 +6,13 @@ export default class ProdutoComanda extends BaseModel {
   declare id: number
 
   @column()
-  declare nome: string
+  declare produtoId: number
+  
+  @column()
+  declare comandaId: number
 
   @column()
-  declare preco: number
-
-  @column()
-  declare tamanho: string
-
-  @column()
-  declare tipoId: number
+  declare quantidade: number 
 
   @column.dateTime({ autoCreate: true })
   declare createdAt: DateTime

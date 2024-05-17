@@ -9,6 +9,8 @@ export default class extends BaseSchema {
       table.string('nome', 50).notNullable()
       table.text('descricao')
       
+      table.timestamp('created_at')
+      table.timestamp('updated_at')
     })
   }
 

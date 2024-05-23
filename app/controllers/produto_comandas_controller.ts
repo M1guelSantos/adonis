@@ -16,9 +16,7 @@ import ProdutoComanda from "../models/produto_comanda.js";
     
         async show({params}: HttpContext) {
            // return await ProdutoComanda.findOrFail(params.id) COMO ERA
-            return await ProdutoComanda.query()
-            .where('id', params.id)
-            .first()
+           return await ProdutoComanda.findOrFail(params.id)
         };
     
     

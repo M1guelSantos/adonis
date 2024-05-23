@@ -1,53 +1,51 @@
 import type { HttpContext } from '@adonisjs/core/http'
-import ProdutoIngredientea from "../models/produto_comanda.js";
+import ProdutoIngrediente from '#models/produto_ingrediente'
     
-    export default class ProdutoIngredienteaController {
+    export default class ProdutoIngredienteController {
         async index({request}: HttpContext){
             
-            // http://localhost:3333/produtoingredienteas?page=1&perPage=5
+            // http://localhost:3333/produtoingredientes?page=1&perPage=5
     
             const page = request.input('page', 1)
             const perPage = request.input('perPage', 10)
     
-            return await ProdutoIngredientea.query().paginate(page, perPage)
-            // return await ProdutoIngredientea.query()
+            return await ProdutoIngrediente.query().paginate(page, perPage)
+            // return await ProdutoIngrediente.query()
         };
     
     
         async show({params}: HttpContext) {
-           // return await ProdutoIngredientea.findOrFail(params.id) COMO ERA
-            return await ProdutoIngredientea.query()
-            .where('id', params.id)
-            .first()
+           // return await ProdutoIngrediente.findOrFail(params.id) COMO ERA
+           return await ProdutoIngrediente.findOrFail(params.id)
         };
     
     
         async store({request}: HttpContext){
     
             const dados = request.only(["produtoId", "ingredienteId"])
-            return await ProdutoIngredientea.create(dados)
+            return await ProdutoIngrediente.create(dados)
             
         };
     
     
         async update({params, request}: HttpContext) {
     
-            const produtoingredientea =  await ProdutoIngredientea.findOrFail(params.id)
+            const produtoingrediente =  await ProdutoIngrediente.findOrFail(params.id)
             const dados = request.only(["produtoId", "ingredienteId"])
             
-            produtoingredientea.merge(dados)
+            produtoingrediente.merge(dados)
         
-            return await produtoingredientea.save()
+            return await produtoingrediente.save()
         };
     
     
         async destroy({params}: HttpContext) {
     
-            const produtoingredientea =  await ProdutoIngredientea.findOrFail(params.id)
+            const produtoingrediente =  await ProdutoIngrediente.findOrFail(params.id)
     
-            await produtoingredientea.delete()
+            await produtoingrediente.delete()
     
-            return {msg:'registro deletado com sucesso', produtoingredientea}
+            return {msg:'registro deletado com sucesso', produtoingrediente}
         };
        
     }

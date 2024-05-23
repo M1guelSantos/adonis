@@ -17,9 +17,7 @@ export default class FormaPagamentosController {
 
     async show({ params }: HttpContext) {
         // return await FormaPagamentos.findOrFail(params.id) COMO ERA
-        return await FormaPagamentos.query()
-            .where('id', params.id)
-            .first()
+        return await FormaPagamentos.findOrFail(params.id)
     };
 
 

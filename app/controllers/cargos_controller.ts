@@ -18,6 +18,7 @@ import Cargo from "../models/cargo.js";
            // return await Cargo.findOrFail(params.id) COMO ERA
             return await Cargo.query()
             .where('id', params.id)
+            .preload('funcionarios')
             .first()
         };
     
